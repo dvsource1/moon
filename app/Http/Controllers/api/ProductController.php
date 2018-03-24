@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Http\Resources\Product\ProductResource;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
+use App\Model\Review;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return Product::all();
     }
 
     /**
@@ -47,7 +49,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return new ProductResource($product);
     }
 
     /**
